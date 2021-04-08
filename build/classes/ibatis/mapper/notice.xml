@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="notice">
+      
+      <!-- 공지사항 목록 가져오기 -->
+     <select id="noticeList" resultClass="noticeVO">
+     	select notice_no, no_name, title, no_date from notice 
+     </select>
+     
+     
+     <!-- 공지사항 상세 내용 가져오기 -->
+     <select id="noticeDetail" resultClass="noticeVO" parameterClass="int">
+     	select notice_no, no_name, title, no_date, cont from notice where notice_no=#data#
+
+     </select>
+
+<!-- 	게시글 총 개수 가져오기 -->
+     <select id="getTotalCount" resultClass="int">
+     	select count(*) from notice
+     </select>
+     
+      <select id="listPage" resultClass="noticeVO" parameterClass="map">
+          select A.* from (
+		    select rownum as rnum, B.*  from (
+		         select * from notice 
+		         order by NOTICE_NO desc) B
+		         <![CDATA[
+		     where rownum <= #end#) A 
+ 		 where A.rnum >=#start#
+ 		   ]]>
+     </select> 
+     
+</sqlMap>

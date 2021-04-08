@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+.login-form {
+   
+    background-color: #EEEFF1;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    border: none;
+   height: 836px;
+    width: 820px;
+    
+}
+* {
+  box-sizing: border-box;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 5px;
+}
+body {
+  margin: 0;
+ 
+}
+
+.text-field {
+      font-size: 14px;
+      padding: 10px;
+      border: none;
+      width: 260px;
+      margin-bottom: 10px;
+ 
+}
+.form-group1{
+	
+margin-right: 320px;
+}
+.btn-warning{
+	background: gray;
+	border:none;
+}
+.btn-lg{
+	background: gray;
+	border:none;
+}

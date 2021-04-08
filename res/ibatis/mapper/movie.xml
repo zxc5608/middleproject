@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE sqlMap
+ 	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+ 	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+ 	
+<sqlMap namespace="movie">
+	
+	<!-- 메인 출력 -->
+	<select id="getCategory" parameterClass="java.util.ArrayList" resultClass="movieVo">
+		select MO_NM, MO_IMG, MO_NO from movie where
+					<iterate conjunction="OR">
+						 mo_category = #[].mo_category#
+					</iterate>
+					<![CDATA[
+					and rownum <= 10]]>
+	</select>
+	
+	<select id="getScoreRank" resultClass="movieVo">
+		select mo_nm, mo_img, mo_no from (select rownum rum, movie.* from movie order by score desc)a where <![CDATA[ rum <= 10]]>
+	</select>
+	
+	<select id="getViewsRank" resultClass="movieVo">
+		select mo_nm, mo_img, mo_no from (select rownum rum, movie.* from movie order by views desc)a where <![CDATA[ rum <= 10]]>
+	</select>
+	
+	<!-- 카테고리별 출력 -->
+	<select id="selectcategoryAll" parameterClass="String" resultClass="movieVo">
+      	select mo_nm, mo_img, mo_no from movie where MO_CATEGORY=#data#
+    </select>
+	
+	<select id="CategetScoreRank" parameterClass="String" resultClass="movieVo">
+		select mo_nm, mo_img, mo_no from (select rownum rum, movie.* from movie where mo_category = #data# order by score desc)a where <![CDATA[ rum <= 10]]>
+	</select>
+	
+	<select id="CategetViewsRank" parameterClass="String" resultClass="movieVo">
+		select mo_nm, mo_img, mo_no from (select rownum rum, movie.* from movie where mo_category = #data# order by views desc)a where <![CDATA[ rum <= 10]]>
+	</select>
+	
+	<!-- 다운로드 페이지의 영화 리스트 출력 -->
+	<select id="getDownList" parameterClass="String" resultClass="movieVo">
+		select * from movie where mo_category = #data#
+	</select>
+	
+	<!-- 영화 정보 하나만 출력하기 -->
+	<select id="getOneMovie" parameterClass="int" resultClass="movieVo">
+		select * from movie where mo_no = #data#
+	</select>
+	
+	<insert id="insertZzim" parameterClass="zzimVo">
+		insert into zzim values (zzim_seq.nextval, #mem_no#, #mo_no#)
+		
+		<selectKey keyProperty="num" resultClass="int">
+			select zzim_seq.currval from dual
+		</selectKey>
+	</insert>
+	
+	<!-- 상세보기 페이지의 재생버튼 클릭시 결제여부 판단 -->
+	<select id="payWhat" parameterClass="int" resultClass="memVo">
+		select payok from member where mem_no = #data#
+	</select>
+	
+	<!-- 검색 버튼 클릭시 조회되는 영화 목록 출력 -->
+	<select id="searchList">
+		select * from movie where title like '%' || #data# || '%'
+	</select>
+</sqlMap>

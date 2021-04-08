@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+#pp{ /* 로고 */
+	color: white;
+	margin-top: 50px;
+	margin-left : 200px;
+	/* font-weight: bold; */
+	font-size: 3.0em;
+	
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#tt{ /* 메뉴창 */
+	font-size:30px;
+	cursor:pointer;
+	float:left;
+}
+
+.sidefont{
+	margin-left:15px;
+	font-size: 1.8em;
+	color: white;
+}
+
+
+#word{ /* 상영작 관리 다운로드 관리 */
+	float:left; 
+	margin-left: 50px; 
+	margin-top: 10px; 
+	font-size: 1.3em;
+}
+#contw{/*  상영작 관리 */
+	font-weight: bold;
+	margin-left: 70px; 
+	margin-top : 40px;
+	margin-bottom: 32px;
+}
+
+.bbut{ /* 등록 */
+	float: right;
+	margin-right: 100px;
+	
+	/* width: 80px; */
+	height: 35px;
+}
+.up{
+	margin-right: 40px;
+	/* margin-left: 50px; */
+	float: right;
+	height: 35px;
+}
+.serch{	/* 검색창 */
+	float: right;
+	margin-right: 130px;
+	width: 210px;
+	height: 35px;
+}
+.sel{  /* 셀렉트 박스 */
+	width: 150px;
+	height: 35px;
+	float: left;
+	margin-right: 10px;
+	margin-left: 80px
+}
+
+.mmm{
+	margin-top: 95px;
+	
+}
+.imagebox {
+        margin: 15px;
+        padding: 20px;
+        width: 200px;
+        float: left;
+      }
+.mimg {
+        box-sizing: content-box;
+        width: 130px;
+        height: 200px;
+        text-align:  center;
+      }
+
+
+.back{
+	color: red;
+	margin-left: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

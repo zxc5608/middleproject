@@ -1,0 +1,286 @@
+@charset "UTF-8";
+
+#searchDown {
+	width: 170px;
+	height: 33px;
+	float: right;
+	margin-top: 20px;
+}
+
+html, body {
+	position: relative;
+	height: 100%;
+}
+
+body {
+	background: #000;
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: #fff;
+	margin: 0;
+	padding: 0;
+}
+
+.swiper-container {
+	width: 90%;
+	height: 400px;
+}
+
+.swiper-slide {
+	text-align: center;
+	display : flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 18px;
+	-webkit-transition: 250ms all;
+	transition: 250ms all;
+}
+
+.swiper-slide img {
+	width: 250px;
+	height: 350px;
+}
+
+.swiper-slide:hover{
+	-webkit-transform: scale(1.2) translate(30px, -5%);
+	transform: scale(1.2) translate(30px, -5%);
+	z-index: 1;
+}
+
+h1 {
+	font-family: Arial, Helvetica, sans-serif;
+	color: red;
+	text-align: center;
+}
+
+:root { -
+	-swiper-theme-color: #fff;
+}
+
+#title {
+	margin-left: 10%;
+	margin-top: 90px;
+}
+
+.jb-box {
+	width: 100%;
+	height: 800px;
+	overflow: hidden;
+	margin: 0px auto;
+	position: relative;
+}
+
+video {
+	width: 100%;
+}
+
+.jb-text {
+	position: absolute;
+	top: 0%;
+	width: 100%;
+}
+
+@charset "UTF-8";
+
+body {
+	min-width: 2000px;
+}
+
+.logo { /*로고  */
+	width: 200px;
+	height: 70px;
+	margin-left: 50px;
+	float: left;
+	margin-right: 100px;
+}
+
+#na {
+	vertical-align: center;
+	list-style-type: none;
+	min-height: 150px;
+	border-left: none;
+	border-right: none;
+}
+
+iframe {
+	margin-left: 25px;
+	width: 1400px;
+	height: 300px;
+	border: none;
+	padding: 15px;
+	margin-left: 200px;
+	margin-top: 100px;
+}
+
+.footer {
+	padding: 20px 20px 20px 50px;
+	background: #e8e6e6;
+	clear: both;
+	margin: 20px 50px 20px 20px;
+}
+
+#na .av {
+	float: left;
+	margin-top: 20px;
+	margin-right: 100px;
+	font-size: 20px;
+}
+
+#nav {
+	display: inline;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+.search {
+	width: 50px;
+	height: 50px;
+	float: right;
+	margin-right: 20px;
+	margin-top: 17px;
+}
+
+.search1 {
+	width: 60px;
+	height: 60px;
+	float: right;
+	margin-right: 10%;
+	margin-top: 17px;
+}
+
+#categ {
+	width: 130px;
+	height: 33px;
+	background: white;
+	color: black;
+	margin-left: 22px;
+	margin-top: 30px;
+}
+
+.rowContainer .rowContent .slider {
+	z-index: 2;
+}
+
+h2 {
+	font-size: 30px;
+}
+#h3{
+	color : white;
+	text-align: right;
+    margin-right: 10%;
+}
+
+
+/*여기부터 */
+
+ #polina{
+        font-family:Agenda-Light,Agenda\ Light,Agenda,Arial\ Narrow,sans-serif;
+        font-weight:100;background:rgba(0,0,0,.3);color:#fff;padding:2rem;width:33%;
+       
+        margin-top:123px;
+        float:left;
+        font-size:1.2rem;
+        height: 100%;
+        width:30%;
+    }
+ 
+    #btitle{
+        font-size:3rem;
+        text-transform:uppercase;
+        margin-top:0;
+        letter-spacing:.3rem;
+        margin-top: 200px;
+        color: white;
+        
+    }
+        video#bgvid {
+            position: fixed; right: 0; bottom: 0;
+            min-width: 100%; min-height: 100%;
+            width: auto; height: auto; z-index: -100;
+            background: url(polina.jpg) no-repeat;
+            background-size: cover;
+    }
+     video {
+            position:absolute;
+            margin-top:150px;
+            top:50%;
+            left:50%;
+            min-width:100%;
+            min-height:100%;
+            width:auto;
+            height:auto;
+            z-index:-100;
+            -webkit-transform:translateX(-50%) translateY(-50%);
+            transform:translateX(-50%) translateY(-50%);
+            
+            background-size:cover;-webkit-transition:1s opacity;transition:1s opacity
+    }
+    
+    #ggtitle{
+        display:inline-block;color:#fff;text-decoration:none;background:rgba(0,0,0,.5);
+        padding:.5rem;-webkit-transition:.6s background;
+        transition:.6s background
+    }
+    
+    a:hover{
+        background:rgba(0,0,0,.3)
+    }
+    .dropdown{
+	width: 100px;
+	height: 180px;
+	float: right;
+	margin-right: 10%;
+	margin-top: 17px;
+/* 	position: relative;
+  display: inline-block; */
+} 
+ .dropbtn {
+  background-color: black;
+  color: black;
+  
+  font-size: 16px;
+  border: none;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 120px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #ddd;
+	}
+
+.dropdown:hover .dropdown-content {
+	display: block;
+	}
+.mylog{
+	
+	height: 60px;
+	width:60px;
+	
+}
+
+.dropdown:hover .dropbtn {
+	background-color: black;
+	}
+	
+ 
+a:active { /*클릭하는 순간*/
+    color: red;
+}

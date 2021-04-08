@@ -1,0 +1,228 @@
+@charset "UTF-8";
+
+#pp{ /* 로고 */
+	color: white;
+	margin-top: 50px;
+	margin-left : 200px;
+	/* font-weight: bold; */
+	font-size: 3.0em;
+	
+}
+
+*,body{
+ font-family: "맑은 고딕";
+
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#tt{ /* 메뉴창 */
+	font-size:30px;
+	cursor:pointer;
+	float:left;
+}
+
+.sidefont{
+	margin-left:15px;
+	font-size: 1.8em;
+	color: white;
+}
+
+
+#word{ /* ▤옆 글자  */
+	float:left; 
+	margin-left: 50px; 
+	margin-top: 10px; 
+	font-size: 1.3em;
+}
+#contw{/*  아래 들어갈 큰 글자  */
+	font-weight: bold;
+	margin-left: 70px; 
+	margin-top : 40px;
+	margin-bottom: 32px;
+}
+
+
+.back{
+	color: red;
+	margin-left: 50px;
+}
+
+
+/* ============================================================= */
+
+
+.page{
+	margin-top:20px;
+	margin-left: 45%;
+	width:280px;
+}
+.action{
+	color:black;
+}
+.title{
+	margin-bottom: 30px;
+}
+.review{
+	
+	/* margin-top: 100px; */
+}
+.review1{
+	
+	margin-left: 500px;
+	/* margin-top: 200px; */
+}
+
+.board{
+	margin-top: 200px;
+	
+}
+.form-control{
+	width: 250px;
+	
+}
+.action1{
+	float: right;
+	color:black;
+}
+
+ .form-control{
+ 	width:700px; 
+ }
+ #comments{
+ 	height: 400px;
+ 	width: 566px;	
+ 
+ }
+
+/* 글쓰기 */
+.row{
+	
+	height: 100px;
+}
+.form-write{
+	float: left;
+	color: black;
+	margin-left: 17px;
+
+}
+
+.button-w .button-u{
+	width: 80px;
+	height: 40px;
+	background: white;
+	color:black;
+}
+
+.a{
+	color:black;
+}
+.button-w .button-u{
+	width: 80px;
+	height: 40px;
+	background: white;
+	color:black;
+}
+.container{
+	width:1000px;
+}
+
+
+
+
+
+/* ===================================================== */
+/* fnq */
+
+
+.btn{
+	float: right;
+	margin-right: 390px;
+	
+}
+
+
+#btnn{
+	margin-right: 10px;
+}
+
+
+
+#reply{
+	height: 280px;
+ 	width: 566px;
+}
+
+#yellow{
+	width: 566px;
+}
+
+
+#yyy{
+	font-size: 1.3em;
+	font : bold;
+	text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

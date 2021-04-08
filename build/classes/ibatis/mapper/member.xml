@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <!DOCTYPE sqlMap
+ 	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+ 	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="member">
+
+	<select id="userloginCk" parameterClass="memVo"
+		resultClass="memVo">
+		select *
+		from member where mem_id=#mem_id# and pass=#pass#
+	</select>
+
+	<select id="adminloginCk" parameterClass="adVo"
+		resultClass="adVo">
+		select *
+		from admin where ad_id=#ad_id# and
+		ad_pass=#ad_pass#
+	</select>
+
+	<!-- 회원가입하기 -->
+	<insert id="insertMember" parameterClass="memVo">
+		insert into member
+		(MEM_NO, MEM_NM, MEM_TEL, MEM_ID, PASS, BIR, PROFILE, PAYOK, PRE1,
+		PRE2, PRE3)
+		values (mem_no.nextVal,#mem_nm#, #mem_tel#, #mem_id#,
+		#pass#,#bir#, ../프로필.png, #payok#, #pre1#, #pre2#, #pre3#)
+	</insert>
+
+
+	<!-- 아이디 중복검사 -->
+	<select id="getId" parameterClass="String" resultClass="String">
+		select
+		mem_id from member where mem_id = #mem_id#
+	</select>
+
+	<select id="memList" parameterClass="String" resultClass="memVo">
+		select
+		mem_nm, mem_tel, mem_id, bir, profile, payok from member where
+		mem_id=#mem_id#
+	</select>
+	
+	<!-- 비밀번호 가져오기 -->
+	<select id="getPass" resultClass="String" parameterClass="String">
+		select pass from member where  mem_Id=#mem_Id#
+	</select>
+
+	<!-- 개인정보 수정 -->
+	<!-- 프로필 수정 -->
+	<update id="updateProfile" parameterClass="memVo">
+		update member set profile = #profile# where mem_id=#mem_id#
+	</update>
+
+	<!-- 비밀번호 수정 -->
+	<update id="updatePw" parameterClass="memVo" >
+		update member set pass = #pass# where mem_id=#mem_id#
+	</update>
+
+	<!-- 전화번호 수정 -->
+	<update id="updateTel" parameterClass="memVo">
+		update member set mem_tel = #mem_tel# where mem_id=#mem_id#
+	</update>
+
+	<!-- 선호도 수정 -->
+	<update id="updateLike" parameterClass="memVo">
+		update member set pre1 =#pre1#, pre2=#pre2#, pre3=#pre3# where mem_id=#mem_id#
+	</update>
+	
+	<!-- 회원정보 삭제 -->
+	<delete id="deleteZzim" parameterClass="int">
+		delete from zzim where mem_no = #mem_no#
+	</delete>
+	<delete id="deleteMem" parameterClass="int">
+		delete from member where mem_no = #mem_no#
+	</delete>
+	<delete id="deleteCom" parameterClass="int">
+		delete from community where mem_no = #mem_no#
+	</delete>
+	<delete id="deletebasket" parameterClass="int">
+		delete from basket where mem_no = #mem_no#
+	</delete>
+	<delete id="deleteqna" parameterClass="int">
+		delete from qna where mem_no = #mem_no#
+	</delete>
+	<delete id="deleteReply" parameterClass="int">
+		delete from reply where mem_no = #mem_no#
+	</delete>
+	<delete id="deleteShop" parameterClass="int">
+		delete from shoppay where mem_no = #mem_no#
+	</delete>
+	<delete id="deletePay" parameterClass="int">
+		delete from stpay where mem_no = #mem_no#
+	</delete>
+	
+<!-- 	회원권 결제-->
+	<update id="updatePay" parameterClass="memVo" >
+		update member set payok = #payok# where mem_id=#mem_id#
+	</update>
+</sqlMap> 

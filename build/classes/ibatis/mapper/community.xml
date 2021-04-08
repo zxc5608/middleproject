@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="community">
+      <select id="Count" resultClass="int">
+     select count(*) from community
+     </select>
+     
+     <select id ="selectAlllist" resultClass="communityVO" parameterClass="map">
+     select A.* from (
+		select rownum as rnum, B.* from (
+		select * from community
+		order by COM_NO desc) B
+          <![CDATA[
+     where rownum <= #end#) A 
+ 	where A.rnum >=#start#
+   ]]>
+   and CHOOSE=1
+     </select>
+     
+     <select id ="listDetail" resultClass="communityVO" parameterClass="int">
+     	select * from community where COM_NO=#COM_NO# and choose=1
+     </select>
+     
+     <update id="updatecount" parameterClass="int">
+     update community set COUNT=(COUNT+1) where COM_NO=#COM_NO#
+     
+     </update>
+     <insert id="writecommunity" parameterClass="communityVO">
+     INSERT INTO community (
+     COM_NO,
+	MEM_NO,
+	TITLE,
+	CONT,
+	COM_DATE,
+	WRITER,
+	COUNT,
+	CHOOSE
+     )
+     values(
+     	community_seq.nextval,
+     	0,
+     	#title#,
+     	#cont#,
+     	sysdate,
+     	'비로그인',
+     	#count#,
+     	#choose#
+     )
+     <selectKey keyProperty= "com_no" resultClass="int">
+     		select community_seq.currval from dual
+     	</selectKey>
+
+     </insert>
+     
+     <select id ="searchcom" resultClass="communityVO" parameterClass="String">
+     select * from community WHERE TITLE LIKE '%'||#search_value#||'%'
+     </select>
+     <select id="getreportuser" resultClass="int" parameterClass="int">
+     select MEM_NO from community where COM_NO=#data#
+     </select>
+     
+     <select id="getreporteduser" resultClass="String" parameterClass="int">
+     
+     select MEM_ID from member where MEM_NO=#data#
+     </select>
+     <insert id="insertreport" parameterClass="reportVO">
+     insert into REPORT(
+     REPORT_NO,
+	BAD_ID,
+	GOOD_ID,
+	REASON,
+	REPORT_DATE,
+	CONT
+     ) values
+     (
+     REPORT_NO.nextval,
+     #bad_id#,
+     #good_id#,
+     #reason#,
+     sysdate,
+     #cont#
+     )
+      <selectKey keyProperty= "report_no" resultClass="int">
+     		select REPORT_NO.currval from dual
+     	</selectKey>
+     
+     </insert>
+     
+     <update id="comupdate" parameterClass="communityVO">
+     	update community set TITLE=#title#, CONT=#cont#, COM_DATE=sysdate where COM_NO=#com_no#
+     </update>
+     
+     <select id = "listAll" resultClass="communityVo">
+		select * from community
+	</select>
+
+     </sqlMap>

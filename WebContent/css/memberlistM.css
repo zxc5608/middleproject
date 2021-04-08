@@ -1,0 +1,195 @@
+@charset "UTF-8";
+
+#pp{ /* 로고 */
+	color: white;
+	margin-top: 50px;
+	margin-left : 200px;
+	/* font-weight: bold; */
+	font-size: 3.0em;
+	
+}
+
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#tt{ /* 메뉴창 */
+	font-size:30px;
+	cursor:pointer;
+	float:left;
+}
+
+.sidefont{
+	margin-left:15px;
+	font-size: 1.8em;
+	color: white;
+}
+
+
+#word{ /* ▤옆 글자  */
+	float:left; 
+	margin-left: 50px; 
+	margin-top: 10px; 
+	font-size: 1.3em;
+}
+#contw{/*  아래 들어갈 큰 글자  */
+	font-weight: bold;
+	margin-left: 70px; 
+	margin-top : 40px;
+	margin-bottom: 32px;
+}
+
+.back{
+	color: red;
+	margin-left: 50px;
+}
+
+
+/*===============================================*/
+
+.review{
+	margin-left: 130px;
+}
+
+*,body{
+ font-family: "맑은 고딕";
+ margin:0px;
+ padding:0px;
+ font-size:15px;
+}
+caption{
+ background: url(images/title_event.png) no-repeat center center;
+ width:700px;
+ height:50px;
+}
+caption span{
+ display:none;
+}
+table{
+ width:900px;
+ border-collapse: collapse;
+ height: 30px;
+}
+td{
+ border-bottom: 1px solid white;
+ text-align:center;
+ padding:5px 10px;
+ height: 50px;
+}
+th{
+ height:50px;
+ padding:0px 0px;
+ font-size:12px;
+}
+th span{
+/*  border-right:1px solid #666; */
+ background: url(images/bar7_1.png) no-repeat right 10px;
+  display:block;
+  padding:0px 0px 2px 0px;
+}
+tr:FIRST-CHILD{
+ 
+}
+tr:last-CHILD{
+ border-bottom: 2px solid #000;
+}
+th:FIRST-CHILD{
+ background: url(images/table_header_bg.png) repeat-x;
+}
+ /* 2열의 th 내용*/
+th:nth-child(2) {
+ background: url(images/table_header_bg.png) center top repeat-x;
+}
+th:nth-child(3) {
+ background: url(images/table_header_bg.png) center top repeat-x;
+}
+th:nth-child(4) {
+ background: url(images/table_header_bg.png) center top repeat-x;
+}
+th:nth-child(5) {
+ background: url(images/table_header_bg.png) right top repeat-x;
+}
+.bb{
+ border:none;
+}
+td{
+ background: url(images/bar7_1.png) no-repeat right bottom;
+ text-align: inherit;
+}
+
+.due{
+	height : 33px;
+	margin-left: 730px;
+	margin-top: 50px;
+	float : left;
+}
+
+.btn{
+	float : left;
+	/* margin-left: 830px; */
+	margin-top: 50px;
+}
+
+
+.page{
+	
+	margin-left: 40%;
+	width:280px;
+}
+
+.back{
+	color: red;
+	margin-left: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

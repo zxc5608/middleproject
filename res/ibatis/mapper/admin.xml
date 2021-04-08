@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="admin">
+
+	<select id="memList" resultClass="memVo">
+		select * from member order by
+		mem_no desc
+	</select>
+	<select id="singoList" resultClass="reportVO">
+		select * from report order by
+		REPORT_NO
+	</select>
+
+	<select id="payList" resultClass="memVo">
+		select * from member where payok=1 order by paydate desc
+	</select>
+
+	<select id="downList" resultClass="shopVo">
+		select * from shoppay order by SHOP_DATE
+	</select>
+
+	<select id="getMem" resultClass="memVo" parameterClass="int">
+		select mem_id, mem_nm from member where mem_no=#mem_no#
+	</select>
+
+	<select id="getMovie" resultClass="movieVo" parameterClass="int">
+		select mo_nm, mo_price from movie where mo_no=#mo_no# order by
+		mo_price desc
+	</select>
+
+	<update id="singo" parameterClass="memVo">
+		update member set
+		warning=#warning# where mem_id=#mem_id#
+	</update>
+
+	<insert id="NewNotice" parameterClass="noticeVO">
+		insert into notice (ad_no, title, cont, notice_no, no_name, no_date)
+		values (admin_seq.nextval, #title#, #cont#, notice_seq.nextval, 'admin', sysdate)
+	</insert>
+
+ <!-- 공지사항 목록 가져오기 -->
+     <select id="noticeList" resultClass="noticeVO">
+     	select notice_no, no_name, title, no_date from notice 
+     </select>
+     
+     
+     <!-- 공지사항 상세 내용 가져오기 -->
+     <select id="noticeDetail" resultClass="noticeVO" parameterClass="int">
+     	select notice_no, no_name, title, no_date, cont from notice where notice_no=#data#
+
+     </select>
+
+<!-- 	게시글 총 개수 가져오기 -->
+     <select id="getCount" resultClass="int">
+     	select count(*) from notice
+     </select>
+     
+<!--      페이지별 출력 -->
+          <select id="listPage" resultClass="noticeVO" parameterClass="map">
+          select A.* from (
+		    select rownum as rnum, B.*  from (
+		         select * from notice 
+		         order by NOTICE_NO desc) B
+		         <![CDATA[
+		     where rownum <= #end#) A 
+ 		 where A.rnum >=#start#
+ 		   ]]>
+     </select> 
+     
+     <delete id="deleteNo" parameterClass="int">
+		delete from notice where notice_no=#notice_no#
+	</delete>
+     
+     <update id="updateNo" parameterClass="noticeVO">
+		update notice set title=#title#, cont=#cont# where notice_no=#notice_no#
+	</update>
+     
+<!-- 카테고리별로 상영작 목록 출력 -->
+
+<select resultClass="movieVo" parameterClass="map" id="selectcategory">
+select A.*from (select rownum as rnum, B.*from (select mo_nm, mo_img, mo_no from movie where MO_CATEGORY=#mo_category#)B 
+<![CDATA[
+      		  where rownum <= #end#)A
+      	where A.rnum >= #start#
+      	]]>
+</select>
+
+<select resultClass="int" parameterClass="String" id="getTotalCount">select count(*) from movie where mo_category = #data# </select>
+
+</sqlMap>

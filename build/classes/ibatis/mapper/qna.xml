@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="qna">
+      
+      <!-- 	게시글 총 개수 가져오기 -->
+     <select id="getTotalCount" resultClass="int">
+     	select count(*) from qna
+     </select>
+     
+<!--      //NVL(COMM, 0)
+	     q_no
+		q_title
+		q_cont
+		mem_no
+		q_date
+		a_cont
+		a_date
+		writer
+		admin
+		NVL(COMM, 0)
+      -->
+     
+      <select id="listPage" resultClass="qnaVO" parameterClass="map">
+          select A.Q_NO, A.Q_TITLE, A.Q_CONT, A.MEM_NO, A.Q_DATE, nvl(A.A_CONT, ' ') A_CONT, nvl(A.A_DATE, '') A_DATE, A.WRITER, nvl(A.ADMIN, 0 )ADMIN  from (
+		    select rownum as rnum, B.*  from (
+		         select * from qna 
+		         order by Q_NO desc) B
+		         <![CDATA[
+		     where rownum <= #end#) A 
+ 		 where A.rnum >=#start#
+ 		   ]]>
+     </select> 
+     
+       <insert id="insertqna" parameterClass ="qnaVO">
+     insert into qna (q_no,q_title,q_cont,mem_no,q_date,writer, a_cont, a_date, admin) values(
+            qna_seq.nextval, 
+            #q_title#,
+            #q_cont#,
+            #mem_no#,
+            sysdate,
+            #writer#,
+            #a_cont#,
+            sysdate,
+            #admin#
+      )
+      
+      <selectKey  keyProperty="q_no" resultClass="int">
+          select qna_seq.currval from  dual
+      </selectKey>
+      
+  </insert>
+  
+  
+   <delete id="deleteqna" parameterClass="int"> 
+     	delete from qna where q_no = #data#
+     </delete>
+
+
+
+	<update id="uadateqna" parameterClass="qnaVO">
+		update qna set 
+		q_title=#q_title#,
+		q_cont = #q_cont#,
+		q_date=sysdate
+	
+		where q_no=#q_no#
+	</update>
+     
+     
+     
+     	<update id="uadateqnaA" parameterClass="qnaVO">
+		update qna set 
+	
+		a_date=sysdate,
+		a_cont = #a_cont#
+		where q_no=#q_no#
+	</update>
+</sqlMap>
+
+
+
+
